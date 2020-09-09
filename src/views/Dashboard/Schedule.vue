@@ -1,14 +1,13 @@
 <!-- @format -->
 
 <template>
-	<router-view></router-view>
+	<div class="c">abc</div>
 </template>
 
 <script>
 	export default {
-		name: 'App',
-		data: () => ({
-			//
-		}),
+		name: 'Schedule',
 	}
 </script>
+
+<style></style>
