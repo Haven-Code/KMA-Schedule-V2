@@ -1,11 +1,13 @@
 <!-- @format -->
 
 <template>
-	<v-app-bar absolute app color="transparent" flat fixed>
-		<v-app-bar-nav-icon @click.stop="$emit('toggle-drawer')"></v-app-bar-nav-icon>
+	<v-app-bar absolute app color="transparent" flat fixed class="blue--text lighten-3">
+		<v-app-bar-nav-icon @click.stop="$emit('toggle-drawer')" class="blue--text lighten-3"></v-app-bar-nav-icon>
 
-		<v-toolbar-title>
-			KMA&nbsp;
+		<v-spacer></v-spacer>
+
+		<v-toolbar-title class="text-h5">
+			<strong>KMA&nbsp;</strong>
 			<span class="font-weight-light">Schedule</span>
 		</v-toolbar-title>
 
@@ -13,7 +15,7 @@
 
 		<v-menu left bottom>
 			<template v-slot:activator="{ on, attrs }">
-				<v-btn icon v-bind="attrs" v-on="on" class="mr-1">
+				<v-btn icon v-bind="attrs" v-on="on" class="mr-1 blue--text lighten-1">
 					<v-icon>fas fa-power-off</v-icon>
 				</v-btn>
 			</template>

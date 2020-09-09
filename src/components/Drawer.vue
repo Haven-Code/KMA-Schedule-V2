@@ -9,7 +9,7 @@
 				</v-list-item-avatar>
 
 				<v-list-item-content>
-					<v-list-item-title class="text-body-2" >ABC</v-list-item-title>
+					<v-list-item-title class="text-body-2">ABC</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
 		</v-list>
@@ -33,51 +33,29 @@
 		</v-list>
 
 		<template v-slot:append>
-			<v-list-item-group mandatory>
-				<v-list-item link class="green lighten-1" dark>
-					<v-list-item-action>
-						<v-icon class="white--text">fas fa-mobile-alt</v-icon>
-					</v-list-item-action>
+			<v-list expand nav>
+				<v-list-item-group mandatory>
+					<v-list-item exact v-for="(item, index) in appenItems" :key="index" :to="{ name: item.routerName }" :class="item.bgColor">
+						<v-list-item-action>
+							<v-icon>{{ item.icon }}</v-icon>
+						</v-list-item-action>
 
-					<v-list-item-content>
-						<v-list-item-title>
-							Cài Đặt App Ngay !
-						</v-list-item-title>
-					</v-list-item-content>
-				</v-list-item>
+						<v-list-item-content>
+							<v-list-item-title>
+								{{ item.name }}
+							</v-list-item-title>
+						</v-list-item-content>
+					</v-list-item>
+				</v-list-item-group>
+			</v-list>
 
-				<v-list-item link exact dark class="orange accent-2" :to="{ name: 'Donate' }">
-					<v-list-item-action>
-						<v-icon class="white--text">fas fa-hand-holding-usd</v-icon>
-					</v-list-item-action>
-
-					<v-list-item-content>
-						<v-list-item-title>
-							Ủng Hộ Dev
-						</v-list-item-title>
-					</v-list-item-content>
-				</v-list-item>
-
-				<v-list-item link exact :to="{ name: 'About' }">
-					<v-list-item-action>
-						<v-icon>fas fa-info-circle</v-icon>
-					</v-list-item-action>
-
-					<v-list-item-content>
-						<v-list-item-title>
-							Thông Tin
-						</v-list-item-title>
-					</v-list-item-content>
-				</v-list-item>
-			</v-list-item-group>
-
-			<p class="text-subtitle-2 text-center mb-0 mt-2">
+			<p class="text-subtitle-2 text-center mb-0 mt-2 white--text">
 				Copyright &copy; {{ getYear }}
-				<a target="_blank" href="https://havencode.net">Haven Code</a>
+				<a target="_blank" href="https://havencode.net" class=" white--text">Haven Code</a>
 			</p>
-			<p class="text-subtitle-2 text-center mb-2 ">
+			<p class="text-subtitle-2 text-center mb-2 white--text">
 				Powered By
-				<a href="https://danghoangphuc.com" target="_blank">Phuc Dang</a>
+				<a href="https://danghoangphuc.com" class=" white--text" target="_blank">Phuc Dang</a>
 			</p>
 		</template>
 	</v-navigation-drawer>
@@ -107,12 +85,31 @@
 					name: 'Đồng Bộ Hoá',
 				},
 			],
+			appenItems: [
+				{
+					icon: 'fas fa-mobile-alt',
+					routerName: 'MobileInstall',
+					name: 'Cài Đặt App',
+					bgColor: 'green lighten-1',
+				},
+				{
+					icon: 'fas fa-hand-holding-usd',
+					routerName: 'Donate',
+					name: 'Ủng Hộ Dev',
+					bgColor: 'orange accent-2',
+				},
+				{
+					icon: 'fas fa-info-circle',
+					routerName: 'About',
+					name: 'Thông Tin',
+				},
+			],
 		}),
 		computed: {
 			getYear() {
 				return moment().format('YYYY')
 			},
-		}
+		},
 	}
 </script>
 
