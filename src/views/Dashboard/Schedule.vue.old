@@ -1,0 +1,242 @@
+<!-- @format -->
+
+<template>
+	<div class="schedule ma-2 ">
+		<v-sheet height="8.5vh" v-if="$vuetify.breakpoint.mdAndUp">
+			<v-toolbar flat color="white">
+				<v-tooltip bottom>
+					<template v-slot:activator="{ on, attrs }">
+						<v-btn outlined class="mr-4" color="grey darken-2" @click="setToday" v-bind="attrs" v-on="on">
+							Về Hôm Nay
+						</v-btn>
+					</template>
+					<span>Về Trang Có Ngày Hôm Nay</span>
+				</v-tooltip>
+
+				<v-tooltip bottom>
+					<template v-slot:activator="{ on, attrs }">
+						<v-btn fab text small color="grey darken-2" @click="prev" v-bind="attrs" v-on="on">
+							<v-icon small>mdi-chevron-left</v-icon>
+						</v-btn>
+					</template>
+					<span>Trang Trước</span>
+				</v-tooltip>
+
+				<v-tooltip bottom>
+					<template v-slot:activator="{ on, attrs }">
+						<v-btn fab text small color="grey darken-2" @click="next" v-bind="attrs" v-on="on">
+							<v-icon small>mdi-chevron-right</v-icon>
+						</v-btn>
+					</template>
+					<span>Trang Sau</span>
+				</v-tooltip>
+
+				<v-toolbar-title v-if="$refs.calendar">
+					{{ translateMonth($refs.calendar.title) }}
+				</v-toolbar-title>
+
+				<v-spacer></v-spacer>
+
+				<!-- <v-tooltip bottom>
+						<template v-slot:activator="{ on, attrs }">
+							<v-btn outlined class="mr-4" color="grey darken-2" v-bind="attrs" v-on="on">
+								Đồng Bộ Lại
+							</v-btn>
+						</template>
+						<span>Comming Soon</span>
+					</v-tooltip> -->
+
+				<v-menu bottom right>
+					<template v-slot:activator="{ on, attrs }">
+						<v-btn outlined color="grey darken-2" v-bind="attrs" v-on="on">
+							<span>{{ calendar.typeToLabel[calendar.type] }}</span>
+							<v-icon right>mdi-menu-down</v-icon>
+						</v-btn>
+					</template>
+
+					<v-list>
+						<v-list-item @click="calendar.type = 'day'">
+							<v-list-item-title>Ngày</v-list-item-title>
+						</v-list-item>
+						<v-list-item @click="calendar.type = 'week'">
+							<v-list-item-title>Tuần</v-list-item-title>
+						</v-list-item>
+						<v-list-item @click="calendar.type = 'month'">
+							<v-list-item-title>Tháng</v-list-item-title>
+						</v-list-item>
+						<v-list-item @click="calendar.type = '4day'">
+							<v-list-item-title>4 ngày</v-list-item-title>
+						</v-list-item>
+					</v-list>
+				</v-menu>
+			</v-toolbar>
+		</v-sheet>
+
+		<v-sheet height="80vh" v-if="$vuetify.breakpoint.mdAndUp">
+			<v-calendar color="amber"></v-calendar>
+		</v-sheet>
+
+		<v-sheet v-if="$vuetify.breakpoint.smAndDown">
+			<vc-calendar
+				is-expanded
+				transition="slide-h"
+				:attributes="mView.attrs"
+				color="blue"
+				:first-day-of-week="2"
+				locale="vi"
+				@dayclick="dayClicked"
+			></vc-calendar>
+
+			<v-card class="mt-2 eventList" elevation="1">
+				<v-card-text class="pa-0">
+					<v-list class="mb-3" nav disabled inactive subheader>
+						<v-list-item-group>
+							<v-list-item three-line v-for="(event, index) in mView.eData" :key="index">
+								<v-list-item-content>
+									<v-list-item-title class="text-h6" :class="`${event.color}--text`">{{ event.subjectName }}</v-list-item-title>
+
+									<v-list-item-subtitle class="text-subtitle-1">
+										Tiết:
+										<strong>{{ event.lesson }}</strong>
+										|
+										<strong>
+											{{ convertLessonsToTime(event.lesson).start }} -> {{ convertLessonsToTime(event.lesson).end }}
+										</strong>
+									</v-list-item-subtitle>
+
+									<v-list-item-subtitle class="text-subtitle-1">
+										Phòng:
+										<strong>{{ event.room }}</strong>
+									</v-list-item-subtitle>
+
+									<v-list-item-subtitle class="text-subtitle-1">
+										Giáo Viên:
+										<strong>{{ event.teacher }}</strong>
+									</v-list-item-subtitle>
+								</v-list-item-content>
+							</v-list-item>
+						</v-list-item-group>
+					</v-list>
+				</v-card-text>
+			</v-card>
+		</v-sheet>
+	</div>
+</template>
+
+<script>
+	import moment from 'moment'
+	import { mapState } from 'vuex'
+
+	export default {
+		name: 'Schedule',
+		data: () => ({
+			mView: {
+				colors: ['red', 'green', 'teal', 'orange', 'indigo', 'purple', 'pink'],
+				attrs: [
+					{
+						key: 'today',
+						highlight: 'blue',
+						dates: moment().toDate(),
+					},
+				],
+				eData: [],
+			},
+		}),
+		computed: {
+			...mapState(['user']),
+		},
+		methods: {
+			getEvent() {
+				this.user.userSchedule.forEach((e, index) => {
+					// let color = Math.floor(Math.random() * this.colors.length)
+					// let detail = `Môn: <strong>${e.subjectName} (${e.subjectCode})</strong> <br> Lớp: <strong>${e.className}</strong> <br> Tiết: <strong>${e.lesson}</strong> <br> Phòng Học: <strong>${e.room}</strong> <br> Giáo Viên: <strong>${e.teacher}</strong>`
+					// let time = this.convertDayTime(e.day, e.lesson)
+
+					this.mView.attrs.push({
+						key: index + 1,
+						dot: {
+							color: this.mView.colors[Math.floor(Math.random() * this.mView.colors.length)],
+						},
+						dates: moment(e.day, 'DD/MM/YYYY').toDate(),
+					})
+				})
+			},
+			dayClicked(e) {
+				let day = moment(e.date).format('DD/MM/YYYY')
+				this.mView.eData = []
+
+				this.user.userSchedule.forEach((a) => {
+					if (a.day == day) {
+						let data = {
+							...a,
+							color: this.mView.colors[Math.floor(Math.random() * this.mView.colors.length)],
+						}
+						this.mView.eData.push(data)
+					}
+				})
+			},
+			convertLessonsToTime(lessons) {
+				let time = {
+					start: '',
+					end: '',
+				}
+				switch (lessons) {
+					case '1,2,3':
+						time = {
+							start: '7:00',
+							end: '9:25',
+						}
+						break
+					case '4,5,6':
+						time = {
+							start: '9:35',
+							end: '12:00',
+						}
+						break
+					case '7,8,9':
+						time = {
+							start: '12:30',
+							end: '14:55',
+						}
+						break
+					case '10,11,12':
+						time = {
+							start: '15:05',
+							end: '17:30',
+						}
+						break
+					case '13,14,15,16':
+						time = {
+							start: '18:00',
+							end: '21:15',
+						}
+						break
+					case '7,8,9,10':
+						time = {
+							start: '12:30',
+							end: '15:50',
+						}
+						break
+				}
+				return time
+			},
+		},
+		mounted() {
+			document.title = 'Thời Khoá Biểu | KMA Schedule'
+			this.getEvent()
+		},
+	}
+</script>
+
+<style lang="scss">
+	html,
+	body {
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.eventList {
+		overflow-y: scroll !important;
+		height: calc(50vh - 60px);
+	}
+</style>

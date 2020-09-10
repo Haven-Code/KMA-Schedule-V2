@@ -44,9 +44,19 @@ const routes = [
 				component: () => import(/* webpackChunkName: "dashboard-child" */ '../views/Dashboard/Schedule.vue')
 			},
 			{
-				path: '/ics',
+				path: '/dashboard/ics',
 				name: 'Icalendar',
 				component: () => import(/* webpackChunkName: "dashboard-ics" */ '../views/Dashboard/Icalendar.vue')
+			},
+			{
+				path: '/dashboard/sync',
+				name: 'Sync',
+				component: () => import(/* webpackChunkName: "dashboard-sync" */ '../views/Dashboard/Sync.vue')
+			},
+			{
+				path: '/dashboard/user',
+				name: 'User',
+				component: () => import(/* webpackChunkName: "dashboard-user" */ '../views/Dashboard/User.vue')
 			},
 		]
 	}

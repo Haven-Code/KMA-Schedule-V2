@@ -3,13 +3,17 @@
 <template>
 	<v-navigation-drawer v-model="drawer" app dark color="grey darken-1">
 		<v-list dense nav>
-			<v-list-item>
+			<v-list-item :to="{ name: 'User' }">
 				<v-list-item-avatar class="align-self-center" color="white" contain>
 					<v-img src="https://demos.creative-tim.com/vuetify-material-dashboard/favicon.ico" max-height="30" />
 				</v-list-item-avatar>
 
 				<v-list-item-content>
-					<v-list-item-title class="text-body-2">ABC</v-list-item-title>
+					<v-list-item-title class="text-body-2">
+						{{ user.userData.displayName }}
+						<br />
+						{{ user.userData.studentCode }}
+					</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
 		</v-list>
@@ -63,9 +67,16 @@
 
 <script>
 	import moment from 'moment'
+	import { mapState } from 'vuex'
 
 	export default {
 		name: 'Drawer',
+		computed: {
+			...mapState(['user']),
+			getYear() {
+				return moment().format('YYYY')
+			},
+		},
 		data: () => ({
 			drawer: null,
 			items: [
@@ -105,11 +116,6 @@
 				},
 			],
 		}),
-		computed: {
-			getYear() {
-				return moment().format('YYYY')
-			},
-		},
 	}
 </script>
 

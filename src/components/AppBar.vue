@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template>
-	<v-app-bar absolute app color="transparent" flat fixed class="blue--text lighten-3">
+	<v-app-bar absolute app color="grey lighten-4" flat fixed class="blue--text lighten-3">
 		<v-app-bar-nav-icon @click.stop="$emit('toggle-drawer')" class="blue--text lighten-3"></v-app-bar-nav-icon>
 
 		<v-spacer></v-spacer>

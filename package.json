@@ -10,9 +10,11 @@
   "dependencies": {
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
+    "ics": "^2.24.0",
     "moment": "^2.27.0",
     "secure-ls": "^1.2.6",
     "sweetalert": "^2.1.2",
+    "v-calendar": "^1.0.8",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuetify": "^2.2.11",

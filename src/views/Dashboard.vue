@@ -22,4 +22,8 @@
 	}
 </script>
 
-<style></style>
+<style>
+	.v-main__wrap {
+		background-color: #EEEEEE;
+	}
+</style>
