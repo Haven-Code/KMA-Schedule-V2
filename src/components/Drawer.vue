@@ -5,7 +5,7 @@
 		<v-list dense nav>
 			<v-list-item :to="{ name: 'User' }">
 				<v-list-item-avatar class="align-self-center" color="white" contain>
-					<v-img src="https://demos.creative-tim.com/vuetify-material-dashboard/favicon.ico" max-height="30" />
+					<v-img :src="generateAvatar" />
 				</v-list-item-avatar>
 
 				<v-list-item-content>
@@ -76,6 +76,11 @@
 			getYear() {
 				return moment().format('YYYY')
 			},
+			generateAvatar() {
+				let encodedName = encodeURIComponent(this.user.userData.displayName)
+				let url = 'https://ui-avatars.com/api/?background=42A5F5&color=fff&size=128&name=' + encodedName
+				return url
+			},
 		},
 		data: () => ({
 			drawer: null,
@@ -99,7 +104,7 @@
 			appenItems: [
 				{
 					icon: 'fas fa-mobile-alt',
-					routerName: 'MobileInstall',
+					routerName: 'AppInstall',
 					name: 'Cài Đặt App',
 					bgColor: 'green lighten-1',
 				},

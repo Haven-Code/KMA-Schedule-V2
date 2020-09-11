@@ -425,7 +425,7 @@
 <style>
 	html,
 	body {
-		overflow: hidden;
+		overflow-x: hidden;
 	}
 
 	.eventsList {

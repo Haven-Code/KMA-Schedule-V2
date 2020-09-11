@@ -58,6 +58,21 @@ const routes = [
 				name: 'User',
 				component: () => import(/* webpackChunkName: "dashboard-user" */ '../views/Dashboard/User.vue')
 			},
+			{
+				path: '/dashboard/about',
+				name: 'About',
+				component: () => import(/* webpackChunkName: "dashboard-about" */ '../views/Dashboard/About.vue')
+			},
+			{
+				path: '/dashboard/donate',
+				name: 'Donate',
+				component: () => import(/* webpackChunkName: "dashboard-donate" */ '../views/Dashboard/Donate.vue')
+			},
+			{
+				path: '/dashboard/app',
+				name: 'AppInstall',
+				component: () => import(/* webpackChunkName: "dashboard-donate" */ '../views/Dashboard/AppInstall.vue')
+			},
 		]
 	}
 ]

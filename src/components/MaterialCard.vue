@@ -3,12 +3,14 @@
 <template>
 	<v-card v-bind="$attrs" :class="classes" class="v-card--material pa-3">
 		<div class="d-flex grow flex-wrap">
-			<v-avatar v-if="avatar" size="128" class="mx-auto v-card--material__avatar elevation-6" color="grey">
+			<v-avatar v-if="avatar && !gravatar" size="128" class="mx-auto v-card--material__avatar elevation-6" color="grey">
 				<v-img :src="avatar" />
 			</v-avatar>
 
+			<v-gravatar v-if="gravatar && !avatar" :email="email" :size="150" default-img="retro" class="mx-auto v-card--material__avatar elevation-6 img-circle"/>
+
 			<v-sheet
-				v-else
+				v-if="!gravatar && !avatar"
 				:class="{
 					'pa-7': !$slots.image,
 				}"
@@ -61,6 +63,14 @@
 				type: String,
 				default: '',
 			},
+			gravatar: {
+				type: Boolean,
+				default: false
+			},
+			email: {
+				type: String,
+				default: ''
+			},
 			color: {
 				type: String,
 				default: 'success',
@@ -99,7 +109,7 @@
 	}
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 	.v-card--material
 	  &__avatar
 	    position: relative
@@ -111,4 +121,7 @@
 	    top: -40px
 	    transition: .3s ease
 	    z-index: 1
+
+	.img-circle
+	  border-radius: 50%
 </style>

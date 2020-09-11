@@ -12,6 +12,10 @@ Vue.use(VCalendar, {
 
 Vue.config.productionTip = false
 
+import Gravatar from 'vue-gravatar';
+ 
+Vue.component('v-gravatar', Gravatar);
+
 new Vue({
 	router,
 	store,

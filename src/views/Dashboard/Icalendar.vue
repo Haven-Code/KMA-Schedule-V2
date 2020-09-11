@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template>
-	<v-container class="ics" fluid>
+	<v-container class="ics mt-5" fluid>
 		<MaterialCard class="card mt-6" color="blue lighten-1">
 			<template v-slot:heading>
 				<div class="display-1 font-weight-light">
