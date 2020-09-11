@@ -13,7 +13,8 @@ Vue.use(VCalendar, {
 Vue.config.productionTip = false
 
 import Gravatar from 'vue-gravatar';
- 
+import './registerServiceWorker'
+
 Vue.component('v-gravatar', Gravatar);
 
 new Vue({
