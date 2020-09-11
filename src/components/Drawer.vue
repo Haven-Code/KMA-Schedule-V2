@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template>
-	<v-navigation-drawer v-model="drawer" app dark color="grey darken-1">
+	<v-navigation-drawer v-model="drawer" app dark :color="getThemeColor">
 		<v-list dense nav>
 			<v-list-item :to="{ name: 'User' }">
 				<v-list-item-avatar class="align-self-center" color="white" contain>
@@ -72,7 +72,7 @@
 	export default {
 		name: 'Drawer',
 		computed: {
-			...mapState(['user']),
+			...mapState(['user', 'config']),
 			getYear() {
 				return moment().format('YYYY')
 			},
@@ -80,6 +80,16 @@
 				let encodedName = encodeURIComponent(this.user.userData.displayName)
 				let url = 'https://ui-avatars.com/api/?background=42A5F5&color=fff&size=128&name=' + encodedName
 				return url
+			},
+			getThemeColor() {
+				let color = ''
+
+				if (!this.config.darkTheme) {
+					color = 'grey darken-1'
+				} else {
+					color = ''
+				}
+				return color
 			},
 		},
 		data: () => ({

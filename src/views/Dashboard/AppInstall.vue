@@ -12,9 +12,7 @@
 			<v-card-text>
 				<v-tabs
 					v-model="tab"
-					background-color="white"
 					class="elevation-0"
-					light
 					grow
 					icons-and-text
 					center-active

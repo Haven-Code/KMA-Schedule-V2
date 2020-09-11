@@ -28,7 +28,7 @@ const pluginState = createPersistedState({
 
 export default new Vuex.Store({
 	state: {
-		drawer: null
+		drawer: null,
 	},
 	mutations: {
 	},

@@ -4,11 +4,11 @@
 	<v-container class="user" fluid>
 		<MaterialCard class="v-card-profile userCard" color="blue lighten-2" :avatar="generateAvatar">
 			<v-card-text class="text-center">
-				<h4 class="display-1 font-weight-light mb-3 black--text">
+				<h4 class="display-1 font-weight-light mb-3" :class="config.darkTheme ? `white--text` : `black--text`">
 					{{ user.userData.displayName }}
 				</h4>
 
-				<h6 class="text-h6 mb-1 grey--text">
+				<h6 class="text-h6 mb-1" :class="config.darkTheme ? `while--text` : `grey--text`">
 					{{ user.userData.studentCode }}
 				</h6>
 				
@@ -32,7 +32,7 @@
 			MaterialCard: () => import('../../components/MaterialCard'),
 		},
 		computed: {
-			...mapState(['user']),
+			...mapState(['user', 'config']),
 			items() {
 				let data = [
 					{

@@ -8,10 +8,10 @@
 			</v-overlay>
 
 			<v-sheet height="8.5vh">
-				<v-toolbar flat color="white">
+				<v-toolbar flat>
 					<v-tooltip bottom>
 						<template v-slot:activator="{ on, attrs }">
-							<v-btn outlined class="mr-4" color="grey darken-2" @click="setToday" v-bind="attrs" v-on="on">
+							<v-btn outlined class="mr-4" @click="setToday" v-bind="attrs" v-on="on">
 								Về Hôm Nay
 							</v-btn>
 						</template>
@@ -20,7 +20,7 @@
 
 					<v-tooltip bottom>
 						<template v-slot:activator="{ on, attrs }">
-							<v-btn fab text small color="grey darken-2" @click="prev" v-bind="attrs" v-on="on">
+							<v-btn fab text small @click="prev" v-bind="attrs" v-on="on">
 								<v-icon small>mdi-chevron-left</v-icon>
 							</v-btn>
 						</template>
@@ -29,7 +29,7 @@
 
 					<v-tooltip bottom>
 						<template v-slot:activator="{ on, attrs }">
-							<v-btn fab text small color="grey darken-2" @click="next" v-bind="attrs" v-on="on">
+							<v-btn fab text small @click="next" v-bind="attrs" v-on="on">
 								<v-icon small>mdi-chevron-right</v-icon>
 							</v-btn>
 						</template>
@@ -53,7 +53,7 @@
 
 					<v-menu bottom right>
 						<template v-slot:activator="{ on, attrs }">
-							<v-btn outlined color="grey darken-2" v-bind="attrs" v-on="on">
+							<v-btn outlined v-bind="attrs" v-on="on">
 								<span>{{ dView.calendar.typeToLabel[dView.calendar.type] }}</span>
 								<v-icon right>mdi-menu-down</v-icon>
 							</v-btn>
@@ -130,7 +130,7 @@
 			</v-sheet>
 		</v-col>
 
-		<v-col class="hidden-md-and-up mx-2 grey lighten-4 mobileView">
+		<v-col class="hidden-md-and-up mx-2 mobileView">
 			<vc-calendar
 				is-expanded
 				transition="slide-h"
@@ -139,6 +139,7 @@
 				:first-day-of-week="2"
 				locale="vi"
 				@dayclick="dayClicked"
+				:is-dark="config.darkTheme"
 			></vc-calendar>
 
 			<v-card class="mt-2 eventsList " elevation="1">
@@ -227,7 +228,7 @@
 			},
 		}),
 		computed: {
-			...mapState(['user']),
+			...mapState(['user', 'config']),
 
 			checkHasEvent() {
 				if (this.mView.eData.length <= 0) {
