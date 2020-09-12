@@ -110,6 +110,11 @@
 					routerName: 'Sync',
 					name: 'Đồng Bộ Hoá',
 				},
+				// {
+				// 	icon: 'fas fa-comments',
+				// 	routerName: 'Message',
+				// 	name: 'Tin Nhắn'
+				// },
 			],
 			appenItems: [
 				{
