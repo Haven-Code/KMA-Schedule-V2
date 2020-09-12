@@ -54,9 +54,14 @@
 		font-size: 80px;
 		color: #fff;
 		text-align: center;
-		-webkit-animation: glow 1s ease-in-out infinite alternate;
-		-moz-animation: glow 1s ease-in-out infinite alternate;
-		animation: glow 1s ease-in-out infinite alternate;
+		// -webkit-animation: glow 3s ease-in-out infinite alternate;
+		// -moz-animation: glow 3s ease-in-out infinite alternate;
+		// animation: glow 3s ease-in-out infinite alternate;
+		// transform: translateZ(0);
+		// -webkit-transform: translateZ(0);
+		// -ms-transform: translateZ(0);
+		// will-change: transform;
+		text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
 	}
 
 	@-webkit-keyframes glow {
