@@ -2,9 +2,9 @@
 
 <template>
 	<v-app>
-		<AppBar @toggle-drawer="$refs.drawer.drawer = !$refs.drawer.drawer"/>
+		<AppBar @toggle-drawer="$refs.drawer.drawer = !$refs.drawer.drawer" />
 
-		<Drawer ref="drawer"/>
+		<Drawer ref="drawer" />
 
 		<v-main>
 			<router-view></router-view>
@@ -19,5 +19,7 @@
 			AppBar: () => import('../components/AppBar'),
 			Drawer: () => import('../components/Drawer'),
 		},
+		data: () => ({
+		}),
 	}
 </script>

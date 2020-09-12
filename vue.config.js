@@ -10,7 +10,7 @@ module.exports = {
 		themeColor: '#90CAF9',
 		msTileColor: '#90CAF9',
 		appleMobileWebAppCapable: 'yes',
-		appleMobileWebAppStatusBarStyle: 'black-translucent',
+		appleMobileWebAppStatusBarStyle: 'default',
 		manifestOptions: {
 			icons: [
 				{

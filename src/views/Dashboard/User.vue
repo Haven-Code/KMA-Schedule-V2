@@ -2,7 +2,7 @@
 
 <template>
 	<v-container class="user" fluid>
-		<MaterialCard class="v-card-profile userCard" color="blue lighten-2" :avatar="generateAvatar">
+		<MaterialCard class="v-card-profile userCard elevation-5" color="blue lighten-2" :avatar="generateAvatar">
 			<v-card-text class="text-center">
 				<h4 class="display-1 font-weight-light mb-3" :class="config.darkTheme ? `white--text` : `black--text`">
 					{{ user.userData.displayName }}
