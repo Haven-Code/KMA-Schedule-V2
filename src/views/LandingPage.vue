@@ -19,7 +19,7 @@
 							</p>
 						</div>
 
-						<v-btn :to="{ name: 'Login' }" color="purple lighten-3" dark class="mt-3 glow" large>
+						<v-btn :to="{ name: 'Login' }" color="purple lighten-3" elevation="1" dark class="mt-3" large>
 							<v-icon left>fas fa-user</v-icon>
 							Đăng Nhập Bằng Actvn !
 						</v-btn>
