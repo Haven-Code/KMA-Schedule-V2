@@ -23,7 +23,7 @@
 							Đăng Nhập Bằng Actvn !
 						</v-btn>
 
-						<v-footer absolute color="transparent" class="hidden-sm-and-down text-center font-weight-medium">
+						<v-footer absolute color="transparent" class="hidden-sm-and-down text-center font-weight-medium footer white--text">
 							<v-col class="text-center" cols="12">
 								Copyright &copy; {{ new Date().getFullYear() }} —
 								<strong><a href="https://havencode.net" target="_blank">Haven Code</a></strong>
@@ -115,6 +115,12 @@
 			-webkit-filter: blur(8px);
 			position: relative;
 			z-index: -1;
+		}
+	}
+
+	.footer {
+		a {
+			color: #fff
 		}
 	}
 </style>
