@@ -58,10 +58,10 @@
 				this.$vuetify.theme.dark = !this.$vuetify.theme.dark
 				this.$store.commit('config/SET_THEME', this.$vuetify.theme.dark)
 			},
-			signOut(){
+			signOut() {
 				this.$store.commit('user/LOGOUT')
-				this.$router.replace({name: 'Login'})
-			}
+				this.$router.replace({ name: 'LD' })
+			},
 		},
 		created() {
 			// if (this.config.darkTheme == null) {
@@ -69,7 +69,7 @@
 			// 	this.$vuetify.theme.dark = theme
 			// 	this.$store.commit('config/SET_THEME', theme)
 			// } else {
-				this.$vuetify.theme.dark = this.config.darkTheme || false
+			this.$vuetify.theme.dark = this.config.darkTheme || false
 			// }
 		},
 	}

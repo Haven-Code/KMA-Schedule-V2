@@ -111,7 +111,7 @@
 					swal({
 						title: 'Error !',
 						icon: 'error',
-						text: 'Server Error ! Please Wait !',
+						text: 'Server Error ! Please Wait !' + err,
 					})
 					console.log('ERROR: ', err)
 				}

@@ -99,20 +99,20 @@
 					:activator="dView.calendarEventDetail.selectedElement"
 					offset-x
 				>
-					<v-card color="grey lighten-5" min-width="30vh" flat style="opacity: 0.95">
+					<v-card color="" min-width="30vh" flat style="opacity: 0.95">
 						<v-toolbar :color="dView.calendarEventDetail.selectedEvent.color" dark>
 							<v-toolbar-title v-html="dView.calendarEventDetail.selectedEvent.name"></v-toolbar-title>
 
 							<v-spacer></v-spacer>
 
-							<v-tooltip bottom>
+							<!-- <v-tooltip bottom>
 								<template v-slot:activator="{ on, attrs }">
 									<v-btn icon v-bind="attrs" v-on="on">
 										<v-icon>far fa-calendar-plus</v-icon>
 									</v-btn>
 								</template>
 								<span>Thêm Ghi Chú</span>
-							</v-tooltip>
+							</v-tooltip> -->
 						</v-toolbar>
 
 						<v-card-text>
@@ -121,7 +121,7 @@
 
 						<v-card-actions>
 							<v-spacer></v-spacer>
-							<v-btn text color="secondary" @click="dView.calendarEventDetail.selectedOpen = false">
+							<v-btn text @click="dView.calendarEventDetail.selectedOpen = false">
 								Huỷ Bỏ
 							</v-btn>
 						</v-card-actions>

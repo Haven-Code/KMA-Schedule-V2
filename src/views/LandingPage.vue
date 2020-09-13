@@ -3,7 +3,8 @@
 <template>
 	<v-app>
 		<v-container class="bg d-flex" fluid tag="div">
-			<v-row justify="center" align="center">
+
+			<v-row justify="center" align="center" class="content">
 				<v-col cols="12" sm="10" md="8">
 					<center>
 						<div class="content">
@@ -42,6 +43,8 @@
 </template>
 
 <script>
+	/* eslint-disable */
+
 	export default {
 		name: 'LandingPage',
 	}
