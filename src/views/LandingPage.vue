@@ -103,7 +103,7 @@
 		// background: -o-linear-gradient(to left bottom, #caf0f8 0%, #0096c7 100%);
 		// background: -ms-linear-gradient(to left bottom, #caf0f8 0%, #0096c7 100%);
 		// background: -webkit-linear-gradient(top right, #caf0f8 0%, #0096c7 100%);
-		background-image: url('/assets/ld_bg.jpg');
+		background-image: url('/assets/ld_bg_comp.jpg');
 		background-repeat: no-repeat;
 		background-size: cover;
 
