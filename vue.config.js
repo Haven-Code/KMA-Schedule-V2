@@ -6,7 +6,7 @@ module.exports = {
 		"vuetify"
 	],
 	pwa: {
-		name: 'KMA Schedule V2.0 Beta',
+		name: 'KMA Schedule',
 		themeColor: '#90CAF9',
 		msTileColor: '#90CAF9',
 		appleMobileWebAppCapable: 'yes',

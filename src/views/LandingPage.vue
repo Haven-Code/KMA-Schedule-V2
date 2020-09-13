@@ -3,8 +3,6 @@
 <template>
 	<v-app>
 		<v-container class="bg d-flex" fluid tag="div">
-			<div class="blur"></div>
-
 			<v-row justify="center" align="center">
 				<v-col cols="12" sm="10" md="8">
 					<center>
