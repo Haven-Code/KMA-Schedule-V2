@@ -3,7 +3,6 @@
 <template>
 	<v-app>
 		<v-container class="bg d-flex" fluid tag="div">
-
 			<v-row justify="center" align="center" class="content">
 				<v-col cols="12" sm="10" md="8">
 					<center>
@@ -18,10 +17,27 @@
 							</p>
 						</div>
 
-						<v-btn :to="{ name: 'Login' }" color="purple lighten-3" elevation="1" dark class="mt-3" large>
-							<v-icon left>fas fa-user</v-icon>
-							Đăng Nhập Bằng Actvn !
-						</v-btn>
+						<v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
+							
+							<template v-slot:activator="{ on, attrs }">
+								<v-btn color="purple lighten-3" v-bind="attrs" v-on="on" elevation="1" dark class="mt-3" large>
+									<v-icon left>fas fa-user</v-icon>
+									Đăng Nhập Bằng Actvn !
+								</v-btn>
+							</template>
+							
+							<v-card>
+								<v-toolbar dark color="primary">
+									<v-btn icon dark @click="dialog = false">
+										<v-icon>mdi-close</v-icon>
+									</v-btn>
+									<v-toolbar-title>Đăng Nhập</v-toolbar-title>
+									<v-spacer></v-spacer>
+								</v-toolbar>
+
+								<Login />
+							</v-card>
+						</v-dialog>
 
 						<v-footer absolute color="transparent" class="hidden-sm-and-down text-center font-weight-medium footer white--text">
 							<v-col class="text-center" cols="12">
@@ -47,6 +63,12 @@
 
 	export default {
 		name: 'LandingPage',
+		components: {
+			Login: () => import('../components/Login.vue'),
+		},
+		data: () => ({
+			dialog: false,
+		}),
 	}
 </script>
 
@@ -120,7 +142,7 @@
 
 	.footer {
 		a {
-			color: #fff
+			color: #fff;
 		}
 	}
 </style>

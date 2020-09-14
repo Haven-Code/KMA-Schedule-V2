@@ -27,11 +27,6 @@ const routes = [
 		redirect: { name: 'Dashboard' }
 	},
 	{
-		path: '/login',
-		name: 'Login',
-		component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
-	},
-	{
 		path: '/dashboard',
 		component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue'),
 		meta: {

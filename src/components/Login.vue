@@ -18,9 +18,9 @@
 
 						<v-card-text>
 							<v-form>
-								<v-text-field label="Login" name="login" prepend-icon="fas fa-user" type="text" v-model="username" required :counter="10" :disabled="disable" @keydown.enter="doLogin"></v-text-field>
+								<v-text-field label="Mã Sinh Viên" name="login" prepend-icon="fas fa-user" type="text" v-model="username" required :disabled="disable" @keydown.enter="doLogin"></v-text-field>
 
-								<v-text-field id="password" label="Password" name="password" prepend-icon="fas fa-user-lock" type="password" required v-model="password" :disabled="disable" @keydown.enter="doLogin"></v-text-field>
+								<v-text-field id="password" label="Mật Khẩu" name="password" counter prepend-icon="fas fa-user-lock" type="password" required v-model="password" :disabled="disable" @keydown.enter="doLogin"></v-text-field>
 							</v-form>
 						</v-card-text>
 
