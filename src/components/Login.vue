@@ -75,8 +75,12 @@
 					password: this.password,
 				}
 				try {
-					let res = await axios.post(process.env.VUE_APP_API_LOGIN_URL, param)
-					// console.log(res.data)
+					let res = await axios.post(process.env.VUE_APP_API_LOGIN_URL, param, {
+						headers: {
+							'Content-Type': 'application/x-www-form-urlencoded'
+						}
+					})
+					
 					let data = res.data
 					if (data.code === 'ERROR') {
 						if (data.message.name == 'TransformError') {
