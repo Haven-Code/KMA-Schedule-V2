@@ -127,9 +127,6 @@
 				} else {
 					this.fileValue = value
 				}
-
-				console.log(value)
-				
 				this.btnLoading = false
 				this.downloadBtn = true
 			},
