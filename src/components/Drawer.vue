@@ -145,6 +145,8 @@
 		}),
 		async mounted() {
 			const relatedApps = await navigator.getInstalledRelatedApps()
+
+			console.log(relatedApps)
 			
 			if (relatedApps.length <= 0 ){
 				this.installedPWA = true
