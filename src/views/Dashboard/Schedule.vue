@@ -299,7 +299,7 @@
 
 				setTimeout( () => {
 					this.overlay = false
-				}, 500)
+				}, 200)
 			},
 			convertLessonsToTime(lessons) {
 				let time = {
