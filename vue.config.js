@@ -85,7 +85,7 @@ module.exports = {
 					type: 'image/png',
 				},
 			],
-			scope: '.',
+			scope: '/',
 			start_url: './index.html',
 			background_color: '#ffffff',
 			shortcuts: [
@@ -95,11 +95,18 @@ module.exports = {
 					url: './dashboard',
 					icons: [{ src: '/assets/icons/calendar-alt-solid.png', sizes: '192x192' }],
 				},
+				{
+					name: 'Tool Chuyển Sang Icalendar',
+					short_name: 'Chuyển Sang Icalendar',
+					url: './dashboard/ics',
+					icons: [{ src: '/assets/icons/calendar-alt-solid.png', sizes: '192x192' }],
+				},
 			],
 		},
 		workboxPluginMode: 'GenerateSW',
 		workboxOptions: {
 			exclude: [/\.map$/, /_redirects/, /netlify.toml/],
+			skipWaiting: true
 		},
 	},
 }

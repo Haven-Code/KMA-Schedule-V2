@@ -64,13 +64,14 @@
 			},
 		},
 		created() {
-			// if (this.config.darkTheme == null) {
-			// 	let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'trủe' : 'false'
-			// 	this.$vuetify.theme.dark = theme
-			// 	this.$store.commit('config/SET_THEME', theme)
-			// } else {
-			this.$vuetify.theme.dark = this.config.darkTheme || false
-			// }
+			if (this.config.darkTheme == null) {
+				
+				let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'trủe' : 'false'
+				this.$vuetify.theme.dark = theme
+				this.$store.commit('config/SET_THEME', theme)
+			} else {
+				this.$vuetify.theme.dark = this.config.darkTheme || false
+			}
 		},
 	}
 </script>
