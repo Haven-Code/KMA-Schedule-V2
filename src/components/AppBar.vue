@@ -66,7 +66,7 @@
 		created() {
 			if (this.config.darkTheme == null) {
 				
-				let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'trủe' : 'false'
+				let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'true' : 'false'
 				this.$vuetify.theme.dark = theme
 				this.$store.commit('config/SET_THEME', theme)
 			} else {

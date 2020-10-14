@@ -39,6 +39,18 @@
 		<template v-slot:append>
 			<v-list expand nav>
 				<v-list-item-group mandatory>
+					<v-list-item exact class="green lighten-1" :to="{ name: AppInstall }">
+						<v-list-item-action>
+							<v-icon>fas fa-mobile-alt</v-icon>
+						</v-list-item-action>
+
+						<v-list-item-content>
+							<v-list-item-title>
+								Cài Đặt App
+							</v-list-item-title>
+						</v-list-item-content>
+					</v-list-item>
+
 					<v-list-item exact v-for="(item, index) in appenItems" :key="index" :to="{ name: item.routerName }" :class="item.bgColor">
 						<v-list-item-action>
 							<v-icon>{{ item.icon }}</v-icon>
@@ -118,12 +130,6 @@
 			],
 			appenItems: [
 				{
-					icon: 'fas fa-mobile-alt',
-					routerName: 'AppInstall',
-					name: 'Cài Đặt App',
-					bgColor: 'green lighten-1',
-				},
-				{
 					icon: 'fas fa-hand-holding-usd',
 					routerName: 'Donate',
 					name: 'Ủng Hộ Dev',
@@ -135,7 +141,15 @@
 					name: 'Thông Tin',
 				},
 			],
+			installedPWA: false,
 		}),
+		async mounted() {
+			const relatedApps = await navigator.getInstalledRelatedApps()
+			
+			if (relatedApps.length <= 0 ){
+				this.installedPWA = true
+			}
+		},
 	}
 </script>
 
