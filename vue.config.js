@@ -108,11 +108,17 @@ module.exports = {
 					icons: [{ src: '/assets/icons/sync-solid.png', sizes: '192x192' }],
 				},
 			],
+			related_applications: [
+				{
+					platform: 'webapp',
+					url: 'https://kma.dhpgo.com/manifest.json',
+				},
+			],
 		},
 		workboxPluginMode: 'GenerateSW',
 		workboxOptions: {
 			exclude: [/\.map$/, /_redirects/, /netlify.toml/],
-			skipWaiting: true
+			skipWaiting: true,
 		},
 	},
 }

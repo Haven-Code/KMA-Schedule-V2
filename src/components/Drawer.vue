@@ -148,7 +148,7 @@
 
 			console.log(relatedApps)
 			
-			if (relatedApps.length <= 0 ){
+			if (relatedApps.length <= 0 || window.matchMedia('(display-mode: standalone)').matches){
 				this.installedPWA = true
 			}
 		},
