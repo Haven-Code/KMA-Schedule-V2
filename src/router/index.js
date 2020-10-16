@@ -64,7 +64,7 @@ const routes = [
 				component: () => import(/* webpackChunkName: "dashboard-donate" */ '../views/Dashboard/Donate.vue')
 			},
 			{
-				path: '/dashboard/app',
+				path: '/dashboard/installApp',
 				name: 'AppInstall',
 				component: () => import(/* webpackChunkName: "dashboard-donate" */ '../views/Dashboard/AppInstall.vue')
 			},
