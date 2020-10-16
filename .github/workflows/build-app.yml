@@ -28,6 +28,7 @@ jobs:
           severity: info
           details: Pull Request Build Succeeded!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          username: Botoryx
 
       - name: Test Failure
         uses: rjstone/discord-webhook-notify@v1
@@ -36,6 +37,7 @@ jobs:
           severity: error
           details: Pull Request Build Failed!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          username: Botoryx
 
       - name: Test Cancelled
         uses: rjstone/discord-webhook-notify@v1
@@ -44,3 +46,4 @@ jobs:
           severity: warn
           details: Pull Request Build Cancelled!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          username: Botoryx

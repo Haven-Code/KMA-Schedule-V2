@@ -11,14 +11,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
-
-      - name: Install Dependencies
-        run: npm install
-      - name: Build App
-        run: npm run build
 
       - uses: amondnet/vercel-action@v19
         name: Deploy To Vercel
@@ -36,6 +28,7 @@ jobs:
           severity: info
           details: Deploy To Vercel Build Succeeded!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          username: Botoryx
 
       - name: Deploy To Vercel Failure
         uses: rjstone/discord-webhook-notify@v1
@@ -44,6 +37,7 @@ jobs:
           severity: error
           details: Deploy To Vercel Build Failed!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          username: Botoryx
 
       - name: Deploy To Vercel Cancelled
         uses: rjstone/discord-webhook-notify@v1
@@ -52,3 +46,4 @@ jobs:
           severity: warn
           details: Deploy To Vercel Cancelled!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          username: Botoryx
