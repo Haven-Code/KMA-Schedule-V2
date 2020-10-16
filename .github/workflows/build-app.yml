@@ -3,24 +3,44 @@ name: Build App Vue
 on:
   pull_request:
     branches:
-        - "master"
+      - "master"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     name: Build Application
     steps:
-        - uses: actions/checkout@v2
-        - uses: actions/setup-node@v1
-          with:
-            node-version: '12.x'
-        
-        - name: Install Dependencies
-          run: npm install
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
 
-        - name: Run Build
-          run: npm run build
+      - name: Install Dependencies
+        run: npm install
 
+      - name: Run Build
+        run: npm run build
 
+      - name: Test Success
+        uses: rjstone/discord-webhook-notify@v1
+        if: success()
+        with:
+          severity: info
+          details: Pull Request Build Succeeded!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
-  
+      - name: Test Failure
+        uses: rjstone/discord-webhook-notify@v1
+        if: failure()
+        with:
+          severity: error
+          details: Pull Request Build Failed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+
+      - name: Test Cancelled
+        uses: rjstone/discord-webhook-notify@v1
+        if: cancelled()
+        with:
+          severity: warn
+          details: Pull Request Build Cancelled!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
