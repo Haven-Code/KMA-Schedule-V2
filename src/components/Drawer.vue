@@ -39,7 +39,7 @@
 		<template v-slot:append>
 			<v-list expand nav>
 				<v-list-item-group mandatory>
-					<v-list-item exact class="green lighten-1" :to="{ name: AppInstall }">
+					<v-list-item exact class="green lighten-1" :to="{ name: 'AppInstall' }">
 						<v-list-item-action>
 							<v-icon>fas fa-mobile-alt</v-icon>
 						</v-list-item-action>
@@ -146,9 +146,9 @@
 		async mounted() {
 			const relatedApps = await navigator.getInstalledRelatedApps()
 
-			console.log(relatedApps)
+			// console.log(relatedApps)
 			
-			if (relatedApps.length <= 0 || window.matchMedia('(display-mode: standalone)').matches){
+			if (relatedApps.length > 0 || window.matchMedia('(display-mode: standalone)').matches){
 				this.installedPWA = true
 			}
 		},
