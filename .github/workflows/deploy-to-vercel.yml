@@ -28,3 +28,27 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }} 
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: ./
+
+      - name: Deploy To Vercel Success
+        uses: rjstone/discord-webhook-notify@v1
+        if: success()
+        with:
+          severity: info
+          details: Deploy To Vercel Build Succeeded!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+
+      - name: Deploy To Vercel Failure
+        uses: rjstone/discord-webhook-notify@v1
+        if: failure()
+        with:
+          severity: error
+          details: Deploy To Vercel Build Failed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+
+      - name: Deploy To Vercel Cancelled
+        uses: rjstone/discord-webhook-notify@v1
+        if: cancelled()
+        with:
+          severity: warn
+          details: Deploy To Vercel Cancelled!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
