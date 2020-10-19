@@ -9,7 +9,7 @@ import SecureLS from "secure-ls";
 const ls = new SecureLS({
 	isCompression: true,
 	encodingType: 'aes',
-	encryptionSecret: process.env.VUE_APP_SECURE_LS_KEY
+	encryptionSecret: process.env.VUE_APP_STORE_KEY
 });
 
 import config from './config'

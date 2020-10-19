@@ -51,14 +51,14 @@
 						<span>Comming Soon</span>
 					</v-tooltip> -->
 
-					<v-tooltip bottom>
+					<!-- <v-tooltip bottom>
 						<template v-slot:activator="{ on, attrs }">
 							<v-btn outlined class="mr-4" v-bind="attrs" v-on="on">
 								Thêm Sự Kiện
 							</v-btn>
 						</template>
 						<span>Thêm Sự Kiện Vào Lịch</span>
-					</v-tooltip>
+					</v-tooltip> -->
 
 					<v-menu bottom right>
 						<template v-slot:activator="{ on, attrs }">
@@ -114,14 +114,14 @@
 
 							<v-spacer></v-spacer>
 
-							<v-tooltip bottom>
+							<!-- <v-tooltip bottom>
 								<template v-slot:activator="{ on, attrs }">
 									<v-btn icon v-bind="attrs" v-on="on">
 										<v-icon>far fa-calendar-plus</v-icon>
 									</v-btn>
 								</template>
 								<span>Thêm Ghi Chú</span>
-							</v-tooltip>
+							</v-tooltip> -->
 						</v-toolbar>
 
 						<v-card-text>
@@ -129,9 +129,9 @@
 						</v-card-text>
 
 						<v-card-actions>
-							<v-btn text>
+							<!-- <v-btn text>
 								Xem Ghi Chú
-							</v-btn>
+							</v-btn> -->
 
 							<v-spacer></v-spacer>
 
