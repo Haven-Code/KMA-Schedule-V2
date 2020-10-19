@@ -51,6 +51,15 @@
 						<span>Comming Soon</span>
 					</v-tooltip> -->
 
+					<!-- <v-tooltip bottom>
+						<template v-slot:activator="{ on, attrs }">
+							<v-btn outlined class="mr-4" v-bind="attrs" v-on="on">
+								Thêm Sự Kiện
+							</v-btn>
+						</template>
+						<span>Thêm Sự Kiện Vào Lịch</span>
+					</v-tooltip> -->
+
 					<v-menu bottom right>
 						<template v-slot:activator="{ on, attrs }">
 							<v-btn outlined v-bind="attrs" v-on="on">
@@ -120,7 +129,12 @@
 						</v-card-text>
 
 						<v-card-actions>
+							<!-- <v-btn text>
+								Xem Ghi Chú
+							</v-btn> -->
+
 							<v-spacer></v-spacer>
+
 							<v-btn text @click="dView.calendarEventDetail.selectedOpen = false">
 								Huỷ Bỏ
 							</v-btn>
@@ -131,7 +145,7 @@
 		</v-col>
 
 		<v-col class="hidden-md-and-up mx-2 mobileView">
-			<vc-calendar
+			<Calendar
 				is-expanded
 				transition="slide-h"
 				:attributes="mView.attrs"
@@ -140,11 +154,11 @@
 				locale="vi"
 				@dayclick="dayClicked"
 				:is-dark="config.darkTheme"
-			></vc-calendar>
+			></Calendar>
 
 			<v-card class="mt-2 eventsList " elevation="1">
 				<p v-if="!checkHasEvent" class="text-center mt-5">Bạn không có môn học vào hôm này !</p>
-				
+
 				<v-card-text v-else class="pa-0">
 					<v-list class="mb-3" nav disabled inactive subheader>
 						<v-list-item-group>
@@ -185,11 +199,13 @@
 	import { mapState } from 'vuex'
 	import moment from 'moment'
 	import Spinner from '../../components/Spinner'
+	import Calendar from 'v-calendar/lib/components/calendar.umd'
 
 	export default {
 		name: 'Schedule',
 		components: {
 			Spinner,
+			Calendar
 		},
 		data: () => ({
 			overlay: false,
@@ -224,7 +240,7 @@
 					selectedElement: null,
 				},
 				colors: ['orange', 'indigo', 'deep-purple', 'cyan', 'green', 'pink lighten-1', 'red darken-1'],
-				eData: []
+				eData: [],
 			},
 		}),
 		computed: {
@@ -297,7 +313,7 @@
 					})
 				})
 
-				setTimeout( () => {
+				setTimeout(() => {
 					this.overlay = false
 				}, 200)
 			},

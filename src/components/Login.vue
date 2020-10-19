@@ -40,7 +40,6 @@
 <script>
 	import MaterialCard from '../components/MaterialCard'
 	import axios from 'axios'
-	import swal from 'sweetalert'
 	import { mapState } from 'vuex'
 
 	export default {
@@ -63,7 +62,7 @@
 				this.disable = true
 				if (this.username === '' || this.password === '') {
 					this.disable = false
-					return swal({
+					return this.$swal({
 						title: 'Error !',
 						icon: 'error',
 						text: 'Tên Đăng Nhập / Mật Khẩu Không Được Trống !',
@@ -86,7 +85,8 @@
 						if (data.message.name == 'TransformError') {
 							this.disable = false
 							this.submitBtnLoading = false
-							return swal({
+							
+							return this.$swal({
 								title: 'Error !',
 								icon: 'error',
 								text: `Sai Tài Khoản Hoặc Mật Khẩu ! ${data.message.message}`,
@@ -94,7 +94,8 @@
 						} else {
 							this.disable = false
 							this.submitBtnLoading = false
-							return swal({
+							
+							return this.$swal({
 								title: 'Response Error !',
 								icon: 'error',
 								text: 'Server Error ! Please Wait !',
@@ -103,16 +104,19 @@
 					} else if (data.code === 'SUCCESS') {
 						// console.log(data.data)
 						this.$store.commit('user/SET_USER', data.data)
-						swal({
+						
+						this.$swal({
 							title: 'Login Success !',
 							icon: 'success',
 							text: `Chào ${data.data.studentInfo.displayName} (${data.data.studentInfo.studentCode}) !`,
 						})
+						
 						this.$router.replace({ name: 'Dashboard' })
 					}
 				} catch (err) {
 					this.disable = false
-					swal({
+					
+					this.$swal({
 						title: 'Error !',
 						icon: 'error',
 						text: 'Server Error ! Please Wait !' + err,
@@ -129,7 +133,7 @@
 </script>
 
 <style lang="scss">
-	.swal-modal {
-		font-family: Helvetica;
-	}
+	// .swal-modal {
+	// 	font-family: Helvetica;
+	// }
 </style>

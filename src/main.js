@@ -1,25 +1,29 @@
+/** @format */
+
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import vuetify from './plugins/vuetify';
+import vuetify from './plugins/vuetify'
 
-import VCalendar from 'v-calendar';
+// import VCalendar from 'v-calendar'
 
-Vue.use(VCalendar, {
-	componentPrefix: 'vc',
-});
+// Vue.use(VCalendar, {
+// 	componentPrefix: 'vc',
+// })
+
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
+
+Vue.use(VueSweetalert2)
 
 Vue.config.productionTip = false
 
-import Gravatar from 'vue-gravatar';
 import './registerServiceWorker'
-
-Vue.component('v-gravatar', Gravatar);
 
 new Vue({
 	router,
 	store,
 	vuetify,
-	render: h => h(App)
+	render: (h) => h(App),
 }).$mount('#app')
