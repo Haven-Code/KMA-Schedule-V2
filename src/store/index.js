@@ -7,9 +7,9 @@ import createPersistedState from "vuex-persistedstate"
 import SecureLS from "secure-ls";
 
 const ls = new SecureLS({
-	isCompression: false,
+	isCompression: true,
 	encodingType: 'aes',
-	encryptionSecret: 'phuc-phoenix'
+	encryptionSecret: process.env.VUE_APP_SECURE_LS_KEY
 });
 
 import config from './config'

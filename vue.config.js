@@ -1,9 +1,9 @@
 /** @format */
 
 process.env.VUE_APP_VERSION = require('./package.json').version
-const {ContextReplacementPlugin} = require('webpack')
+const webpack = require('webpack')
 
-const momentWebpackLocale = new ContextReplacementPlugin(/moment[\/\\]locale$/, /vi|en/)
+const momentWebpackLocale = new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /vi|en/)
 
 module.exports = {
 	transpileDependencies: ['vuetify'],
@@ -128,8 +128,8 @@ module.exports = {
 		plugins: [momentWebpackLocale],
 		resolve: {
 			alias: {
-				moment: 'moment/src/moment'
-			}
-		}
+				moment: 'moment/src/moment',
+			},
+		},
 	},
 }
