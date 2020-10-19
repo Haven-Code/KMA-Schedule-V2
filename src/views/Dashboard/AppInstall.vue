@@ -103,7 +103,6 @@
 </template>
 
 <script>
-	import swal from 'sweetalert'
 
 	export default {
 		name: 'AppInstall',
@@ -122,7 +121,8 @@
 						console.log('User accepted the install prompt')
 					} else {
 						console.log('User dismissed the install prompt')
-						swal({
+						
+						this.$swal({
 							title: 'Oh :(',
 							icon: 'error',
 							text: 'Bạn Có Thể Thử Lại Sau !',

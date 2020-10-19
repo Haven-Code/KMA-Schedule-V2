@@ -12,3 +12,9 @@
 		}),
 	}
 </script>
+
+<style>
+	.swal2-modal {
+		font-family: Helvetica;
+	}
+</style>

@@ -65,7 +65,6 @@
 	/* eslint-disable */
 
 	import { mapState } from 'vuex'
-	import swal from 'sweetalert'
 	import moment from 'moment'
 
 	const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest']
@@ -140,7 +139,8 @@
 					.signIn()
 					.then((_) => {
 						this.authorized = true
-						swal({
+						
+						this.$swal({
 							title: 'Connect Success !',
 							icon: 'success',
 						})
@@ -152,7 +152,8 @@
 					.signOut()
 					.then((_) => {
 						this.authorized = false
-						swal({
+						
+						this.$swal({
 							title: 'Disconnect Success !',
 							icon: 'success',
 						})
@@ -205,7 +206,7 @@
 			},
 			importData() {
 				if (!this.user.userSchedule) {
-					return swal({
+					return this.$swal({
 						title: 'Error !',
 						icon: 'error',
 						text: 'List TKB Rỗng !',
@@ -369,11 +370,5 @@
 		height: 30vh;
 		border-radius: 10px 10px 10px 10px;
 		overflow: auto;
-	}
-</style>
-
-<style>
-	.swal-modal {
-		font-family: Helvetica;
 	}
 </style>
