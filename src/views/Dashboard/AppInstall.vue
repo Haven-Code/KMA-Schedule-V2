@@ -45,7 +45,7 @@
 						<v-card tile flat>
 							<v-card-text>
 								<div class="installBtn text-center">
-									<v-btn large dark color="primary" elevation="0" class="mt-4" @click.prevent.stop="install">
+									<v-btn large dark color="primary" elevation="0" class="mt-4" @click.stop="install()">
 										<v-icon class="mr-2">fas fa-plus-circle</v-icon>
 										Cài Đặt Ngay
 									</v-btn>
@@ -62,7 +62,7 @@
 						<v-card tile flat>
 							<v-card-text>
 								<div class="installBtn text-center">
-									<v-btn large dark color="primary" elevation="0" class="mt-4" @click.prevent.stop="install">
+									<v-btn large dark color="primary" elevation="0" class="mt-4">
 										<v-icon class="mr-2">fas fa-plus-circle</v-icon>
 										Cài Đặt Ngay
 									</v-btn>
@@ -74,11 +74,8 @@
 					<v-tab-item value="tab-native-android">
 						<v-card tile flat>
 							<v-card-text>
-								<div class="installBtn text-center">
-									<v-btn large dark color="primary" elevation="0" class="mt-4" @click.prevent.stop="install">
-										<v-icon class="mr-2">fas fa-download</v-icon>
-										Tải Xuống
-									</v-btn>
+								<div class="installBtn text-center mt-2">
+									<p class="text-h5">Coming Soon ....</p>
 								</div>
 							</v-card-text>
 						</v-card>
@@ -88,7 +85,7 @@
 						<v-card tile flat>
 							<v-card-text>
 								<div class="installBtn text-center">
-									<v-btn large dark color="primary" elevation="0" class="mt-4" @click.prevent.stop="install">
+									<v-btn large dark color="primary" elevation="0" class="mt-4" @click.stop="install()">
 										<v-icon class="mr-2">fas fa-plus-circle</v-icon>
 										Cài Đặt Ngay
 									</v-btn>

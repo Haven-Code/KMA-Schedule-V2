@@ -19,25 +19,18 @@
 					<v-icon>mdi-theme-light-dark</v-icon>
 				</v-btn>
 			</template>
-			<span>Dark Theme</span>
+			<span>Chuyển Đổi Giao Diện</span>
 		</v-tooltip>
 
-		<v-menu left bottom>
+		<v-tooltip bottom>
 			<template v-slot:activator="{ on, attrs }">
-				<v-btn icon v-bind="attrs" v-on="on" class="mr-1 blue--text lighten-1">
-					<v-icon>fas fa-power-off</v-icon>
+				<v-btn icon v-on:click="signOut" v-bind="attrs" v-on="on" class="mr-1 blue--text lighten-1">
+					<v-icon class="mr-2">fas fa-sign-out-alt</v-icon>
 				</v-btn>
 			</template>
+			<span>Đăng Xuất</span>
+		</v-tooltip>
 
-			<v-list>
-				<v-list-item @click="() => {}">
-					<v-list-item-title @click.prevent.stop="signOut">
-						<v-icon class="mr-2">fas fa-sign-out-alt</v-icon>
-						Đăng Xuất
-					</v-list-item-title>
-				</v-list-item>
-			</v-list>
-		</v-menu>
 	</v-app-bar>
 </template>
 
@@ -59,13 +52,22 @@
 				this.$store.commit('config/SET_THEME', this.$vuetify.theme.dark)
 			},
 			signOut() {
-				this.$store.commit('user/LOGOUT')
-				this.$router.replace({ name: 'LD' })
+				this.$swal({
+					title: 'Bạn Có Muốn Thoát ?',
+					icon: 'question',
+					showCancelButton: true,
+					confirmButtonText: `Có !`,
+					cancelButtonText: `Không !`,
+				}).then((result) => {
+					if (result.value) {
+						this.$store.commit('user/LOGOUT')
+						this.$router.push({ name: 'LD' })
+					}
+				})
 			},
 		},
 		created() {
 			if (this.config.darkTheme == null) {
-				
 				let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'true' : 'false'
 				this.$vuetify.theme.dark = theme
 				this.$store.commit('config/SET_THEME', theme)
@@ -76,4 +78,8 @@
 	}
 </script>
 
-<style></style>
+<style lang="scss">
+	.swal2-modal {
+		font-family: Helvetica;
+	}
+</style>
