@@ -133,7 +133,7 @@
 </script>
 
 <style lang="scss">
-	// .swal-modal {
-	// 	font-family: Helvetica;
-	// }
+	.swal2-modal {
+		font-family: Helvetica;
+	}
 </style>

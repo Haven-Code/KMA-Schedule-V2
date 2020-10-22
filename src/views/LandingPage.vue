@@ -59,7 +59,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 
 	export default {
 		name: 'LandingPage',
@@ -69,14 +68,6 @@ import { mapState } from 'vuex'
 		data: () => ({
 			dialog: false,
 		}),
-		computed: {
-			...mapState['user']
-		},
-		beforeMount(){
-			if (this.user.isLogined){
-				this.$router.replace({ name: 'Dashboard' })
-			}
-		}
 	}
 </script>
 
