@@ -59,7 +59,7 @@
 </template>
 
 <script>
-	/* eslint-disable */
+import { mapState } from 'vuex'
 
 	export default {
 		name: 'LandingPage',
@@ -69,6 +69,14 @@
 		data: () => ({
 			dialog: false,
 		}),
+		computed: {
+			...mapState['user']
+		},
+		beforeMount(){
+			if (this.user.isLogined){
+				this.$router.replace({ name: 'Dashboard' })
+			}
+		}
 	}
 </script>
 
