@@ -26,8 +26,7 @@ const routes = [
 	},
 	{
 		path: '/index.html',
-		// redirect: { name: 'Dashboard' },
-		component: LD,
+		redirect: { name: 'Dashboard' },
 	},
 	{
 		path: '/dashboard',
