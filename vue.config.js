@@ -89,7 +89,7 @@ module.exports = {
 				},
 			],
 			scope: '/',
-			start_url: './index.html',
+			start_url: './dashboard',
 			background_color: '#ffffff',
 			shortcuts: [
 				{
@@ -122,7 +122,7 @@ module.exports = {
 		workboxOptions: {
 			exclude: [/\.map$/, /_redirects/, /netlify.toml/],
 			skipWaiting: true,
-			// navigateFallback: '/index.html',
+			navigateFallback: '/dashboard',
 		},
 	},
 	configureWebpack: {

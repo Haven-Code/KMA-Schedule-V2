@@ -18,14 +18,13 @@
 						</div>
 
 						<v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
-							
 							<template v-slot:activator="{ on, attrs }">
 								<v-btn color="purple lighten-3" v-bind="attrs" v-on="on" elevation="1" dark class="mt-3" large>
 									<v-icon left>fas fa-user</v-icon>
 									Đăng Nhập Bằng Actvn !
 								</v-btn>
 							</template>
-							
+
 							<v-card>
 								<v-toolbar dark color="primary">
 									<v-btn icon dark @click="dialog = false">
@@ -59,7 +58,6 @@
 </template>
 
 <script>
-
 	export default {
 		name: 'LandingPage',
 		components: {
