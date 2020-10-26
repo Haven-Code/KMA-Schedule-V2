@@ -122,7 +122,7 @@ module.exports = {
 		workboxOptions: {
 			exclude: [/\.map$/, /_redirects/, /netlify.toml/],
 			skipWaiting: true,
-			navigateFallback: '/index.html',
+			// navigateFallback: '/index.html',
 		},
 	},
 	configureWebpack: {

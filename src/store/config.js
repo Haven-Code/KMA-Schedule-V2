@@ -5,7 +5,7 @@ module.exports = {
 	},
 	mutations: {
 		SET_THEME: (state, payload) => {
-			state.darkTheme = payload
+			state.darkTheme = Boolean(payload)
 		}
 	},
 	actions: {

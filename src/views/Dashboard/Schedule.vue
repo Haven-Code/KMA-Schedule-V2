@@ -432,6 +432,8 @@
 		mounted() {
 			this.getEvent()
 			document.title = 'Thời Khoá Biểu | KMA Schedule'
+
+			// console.log(typeof Boolean(this.config.darkTheme))
 		},
 		created() {
 			this.getToday()
