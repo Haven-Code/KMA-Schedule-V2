@@ -5,7 +5,7 @@
 		<MaterialCard class="card mt-6 elevation-5" color="blue lighten-1">
 			<template v-slot:heading>
 				<div class="display-1 font-weight-light">
-					Thông Tin Ứng Dụng
+					Thông Tin Ứng Dụng ABC
 				</div>
 			</template>
 
