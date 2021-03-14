@@ -9,7 +9,7 @@
     "build:report": "vue-cli-service build --report"
   },
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "ics": "^2.24.0",
     "moment": "^2.27.0",
